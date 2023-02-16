@@ -107,7 +107,7 @@ class TodoListViewController: UITableViewController, TodoAddViewControllerDelega
             $0.done == completed
         }
         .sorted(byKeyPath: "dateActual", ascending: false)
-        .map({ $0 }) //map creates an array of the items sorted by date.
+        .map({ $0 }) //Creates an array of the items sorted by date.
         tableView.reloadData()
     }
     
@@ -143,7 +143,7 @@ class TodoListViewController: UITableViewController, TodoAddViewControllerDelega
         tableView.reloadData()
     }
     
-    func dateFormatter(itemDate: Date) -> [String] { //Could move to utilities file
+    func dateFormatter(itemDate: Date) -> [String] { //Move to utilities file
         let currentDate =  itemDate
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle     = .short
@@ -176,16 +176,3 @@ class TodoListViewController: UITableViewController, TodoAddViewControllerDelega
     @IBAction func unwindTodoListViewController(unwindSegue: UIStoryboardSegue) {
     }
 }
-
-
-
-
-
-//Extra
-
-//          Move this to segue, but it resulted in error
-//          deselecting was stoping item from being grabed and sent to detailVC
-
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//                tableView.deselectRow(at: indexPath, animated: true)
-//            }
